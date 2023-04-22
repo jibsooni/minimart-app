@@ -1,2 +1,1 @@
 CREATE DATABASE minimart;
-GRANT ALL PRIVILEGES ON DATABASE minimart TO postgres;
