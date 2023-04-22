@@ -51,6 +51,11 @@ public class MinimartController {
         return service.getAllItemsByCategory(category);
     }
 
+    @GetMapping("/item/{name}")
+    public Item getAllItemsByCategory(@PathVariable("name") String name) {
+        return service.getItemByName(name);
+    }
+
     @DeleteMapping("/item/{name}")
     public SuccessResponse deleteItem(@PathVariable("name") String name) {
         if (service.deleteItem(name)) {

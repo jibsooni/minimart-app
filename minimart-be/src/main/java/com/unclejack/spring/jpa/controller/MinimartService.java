@@ -85,6 +85,14 @@ public class MinimartService {
         return items;
     }
 
+    public Item getItemByName(String name) {
+        Optional<Item> op = itemRepository.findByName(name);
+        if (op.isPresent()) {
+            return op.get();
+        }
+        return null;
+    }
+
     public Item updateItem(CreateItemRequest req) {
         Optional<Item> op = itemRepository.findByName(req.name);
         if (op.isEmpty()) {

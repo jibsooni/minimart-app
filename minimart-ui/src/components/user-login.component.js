@@ -10,7 +10,6 @@ export default class UserLogin extends Component {
         this.sendLogin = this.sendLogin.bind(this);
         this.preLogin = this.preLogin.bind(this);
         this.retrieveItems = this.retrieveItems.bind(this);
-        this.routeChange = this.routeChange.bind(this);
 
         this.state = {
             username: "",
