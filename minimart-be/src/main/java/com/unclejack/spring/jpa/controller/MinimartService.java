@@ -17,6 +17,7 @@ import com.unclejack.spring.jpa.repository.UserRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.math.BigDecimal;
 
 import javax.annotation.PostConstruct;
 
@@ -35,12 +36,18 @@ public class MinimartService {
 
     @PostConstruct
     public void init() {
-        if (getUser("unclejack") == null) {
+        if (userRepository.findAll().isEmpty()) {
             createUser(new CreateUserRequest("unclejack", "unclejack123", Role.Administrator));
-        }
-        if (getUser("xiaoming") == null) {
             createUser(new CreateUserRequest("xiaoming", "xiaoming123", Role.User));
         }
+        if (itemRepository.findAll().isEmpty()) {
+            createItem(new CreateItemRequest("banana", Category.Fruits, new BigDecimal("2.9"), 7));
+            createItem(new CreateItemRequest("watermelon", Category.Fruits, new BigDecimal("7.95"), 4));
+            createItem(new CreateItemRequest("pocky", Category.Snacks, new BigDecimal("1.2"), 15));
+            createItem(new CreateItemRequest("flour", Category.Baking, new BigDecimal("2.2"), 24));
+            createItem(new CreateItemRequest("ribena", Category.Drinks, new BigDecimal("1.3"), 20));
+        }
+        
     }
 
     public User createUser(CreateUserRequest req) {
