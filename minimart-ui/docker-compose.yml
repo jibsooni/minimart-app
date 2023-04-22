@@ -1,0 +1,7 @@
+version: '3.3'
+services:
+  ui:
+    hostname: localhost
+    image: minimart-ui:0.0.1
+    network_mode: host
+    restart: unless-stopped

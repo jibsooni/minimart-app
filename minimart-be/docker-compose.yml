@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  be:
+    hostname: localhost
+    image: minimart-be:0.0.1
+    network_mode: host
+    volumes:
+      - type: bind
+        source: ./src/main/resources/application.properties
+        target: /src/main/resources/application.properties
+        read_only: false
+    environment:
+       SPRING_CONFIG_LOCATION: "file:///src/main/resources/application.properties"
+    restart: unless-stopped
