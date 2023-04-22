@@ -108,7 +108,7 @@ class Item extends Component {
             <div>
                 <div className="edit-form">
                     <h4>Item</h4>
-                    <h5>{currentItem.category}</h5>
+                    <h6>{currentItem.category}</h6>
                     <h5>{currentItem.name}</h5>
                     <form>
                     <div className="form-group">
