@@ -134,6 +134,8 @@ export default class AddItem extends Component {
                                 <option value="2">Fruits</option>
                                 <option value="3">Drinks</option>
                                 <option value="4">Baking</option>
+                                <option value="5">Pantry</option>
+                                <option value="6">Others</option>
                             </select>
                         </div>
                       </div>

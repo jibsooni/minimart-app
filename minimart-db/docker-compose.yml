@@ -1,15 +1,13 @@
 version: '3.3'
 services:
   db:
-    build:
-      context: ./docker
-      dockerfile: Dockerfile
+    hostname: localhost
+    image: boatship/minimart-db:0.0.1
+    network_mode: host
     ports:
       - "5432:5432"
-    hostname: localhost
     environment:
       POSTGRES_DB: minimart
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     restart: unless-stopped
-    network_mode: host

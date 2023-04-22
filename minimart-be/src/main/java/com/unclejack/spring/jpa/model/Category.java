@@ -5,7 +5,9 @@ public enum Category {
     Vegetables(1),
     Fruits(2),
     Drinks(3),
-    Baking(4);
+    Baking(4),
+    Pantry(5),
+    Others(6);
 
     private final int value;
 

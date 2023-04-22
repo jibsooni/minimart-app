@@ -2,7 +2,7 @@ version: '3.3'
 services:
   be:
     hostname: localhost
-    image: minimart-be:0.0.1
+    image: boatship/minimart-be:0.0.1
     network_mode: host
     volumes:
       - type: bind
