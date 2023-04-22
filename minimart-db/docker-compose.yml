@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  db:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    ports:
+      - "5432:5432"
+    hostname: localhost
+    environment:
+      POSTGRES_DB: minimart
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    restart: unless-stopped
+    network_mode: host
