@@ -87,6 +87,14 @@ class Item extends Component {
             console.log(response.data);
             alert("Delete successful");
             this.props.router.navigte('/');
+            this.setState({
+              name: "",
+              category: "",
+              price: "",
+              stock: "",
+        
+              submitted: false
+            });
         })
         .catch(e => {
             console.log(e);
