@@ -65,18 +65,34 @@ class Item extends Component {
     }
 
     updateItem() {
-        minimartService.update(
-            this.state.currentItem
-        )
-        .then (response => {
-            console.log(response.data);
-            this.setState ({
-                message: "Item update successful"
+        if (this.validateNumber(this.state.currentItem)) {
+            minimartService.update(
+                this.state.currentItem
+            )
+            .then (response => {
+                console.log(response.data);
+                this.setState ({
+                    message: "Item update successful"
+                });
+            })
+            .catch(e => {
+                console.log(e);
             });
-        })
-        .catch(e => {
-            console.log(e);
-        });
+        }
+    }
+
+    validateNumber(input) {
+        var regexPrice =  /^[0-9]\d*(\.\d+)?$/;
+        if(!input.price.toString().match(regexPrice)) {
+            alert("please enter valid price");
+            return false;
+        }        
+        var regexStock =  /^[0-9]+$/;
+        if(!input.stock.toString().match(regexStock)) {
+            alert("only numbers allowed in stock");
+            return false;
+        }
+        return true;
     }
 
     deleteItem() {

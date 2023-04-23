@@ -44,7 +44,7 @@ export default class AddItem extends Component {
     }
 
     saveItem() {
-        if (this.alphanumeric(this.state.name)) {
+        if (this.validateText(this.state.name) && this.validateNumber(this.state)) {
             var data = {
                 name: this.state.name,
                 category: this.state.category,
@@ -67,11 +67,10 @@ export default class AddItem extends Component {
             .catch(e => {
                 console.log(e);
             })
-        } else {
-            console.log("only alphanumeric characters allowed in field: Name");
-        }
-
-        
+        } 
+        // else {
+        //     console.log("only alphanumeric characters allowed in field: Name");
+        // }
     }
 
     newItem() {
@@ -85,16 +84,33 @@ export default class AddItem extends Component {
         });
     }
 
-    alphanumeric(inputtxt)
-    {
-        var regex =  /^[0-9a-zA-Z]+$/;
+    validateText(inputtxt) {
+        if (inputtxt.length < 3) {
+            alert("name too short");
+            return false;
+        } 
+        var regex =  /^[a-zA-Z]+$/;
         if(inputtxt.match(regex)) {
             return true;
         }
         else {
-            alert("only alphanumeric characters allowed in field: Name");
+            alert("only alphabets allowed in field: Name");
             return false;
         }
+    }
+
+    validateNumber(input) {
+        var regexPrice =  /^[0-9]\d*(\.\d+)?$/;
+        if(!input.price.match(regexPrice)) {
+            alert("please enter valid price");
+            return false;
+        }        
+        var regexStock =  /^[0-9]+$/;
+        if(!input.stock.match(regexStock)) {
+            alert("only numbers allowed in stock");
+            return false;
+        }
+        return true;
     }
 
     render() {

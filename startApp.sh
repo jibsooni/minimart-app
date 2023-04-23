@@ -14,3 +14,5 @@ echo ---------- start be ----------
 cd ../minimart-be
 docker-compose up -d &
 
+cd ..
+

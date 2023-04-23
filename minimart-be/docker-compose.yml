@@ -9,6 +9,10 @@ services:
         source: ./src/main/resources/application.properties
         target: /src/main/resources/application.properties
         read_only: false
+      - type: bind
+        source: ../logs
+        target: /logs
+        read_only: false
     environment:
        SPRING_CONFIG_LOCATION: "file:///src/main/resources/application.properties"
     restart: unless-stopped
