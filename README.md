@@ -25,7 +25,7 @@ In the terminal, navigate to the project directory and run the following command
 
 ### Step 2: Access the application
 
-The application can be accessed from the browser on `localhost:8081`
+The application can be accessed from the browser on `http://localhost:8081`
 
 The homepage that appears contains the list of items that are available today.
 

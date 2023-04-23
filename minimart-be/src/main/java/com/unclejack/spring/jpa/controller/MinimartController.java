@@ -52,15 +52,17 @@ public class MinimartController {
     }
 
     @GetMapping("/item/{name}")
-    public Item getAllItemsByCategory(@PathVariable("name") String name) {
+    public Item getItemByName(@PathVariable("name") String name) {
         return service.getItemByName(name);
     }
 
     @DeleteMapping("/item/{name}")
     public SuccessResponse deleteItem(@PathVariable("name") String name) {
         if (service.deleteItem(name)) {
+            logger.info("delete success: " + name);
             return new SuccessResponse(true, "OK");
         } else {
+            logger.error("delete failed: " + name);
             return new SuccessResponse(false, "Error");
         }
     }

@@ -53,14 +53,17 @@ public class MinimartService {
     public User createUser(CreateUserRequest req) {
         User user = new User(req.username, req.password, req.role);
         userRepository.save(user);
+        logger.info("new user created: " + req.username);
         return user;
     }
 
     public User getUser(String username) {
         Optional<User> op = userRepository.findByUsername(username);
         if (op.isPresent()) {
+            logger.info("user retrieved: " + username);
             return op.get();
         }
+        logger.error("user not found: " + username);
         return null;
     }
 
@@ -68,17 +71,21 @@ public class MinimartService {
         Optional<User> op = userRepository.findByUsernameAndPassword(req.username, req.password);
         if (op.isPresent()) {
             UserResponse res = new UserResponse(op.get());
+            logger.info("user retrieved: " + req.username);
             return res;
         }
+        logger.error("user not found: " + req.username);
         return null;
     }
 
     public Item createItem(CreateItemRequest req) {
         if (itemRepository.findByName(req.name).isPresent()) {
+            logger.error("item already exists: " + req.name);
             throw new BadRequestException("item with name: " + req.name + " already exists");  
         }
         Item item = new Item(req.category, req.price, req.name, req.stock);
         itemRepository.save(item);
+        logger.error("item created: " + req.name);
         return item;
     }
 
@@ -97,12 +104,14 @@ public class MinimartService {
         if (op.isPresent()) {
             return op.get();
         }
+        logger.error("item not found: " + name);
         return null;
     }
 
     public Item updateItem(CreateItemRequest req) {
         Optional<Item> op = itemRepository.findByName(req.name);
         if (op.isEmpty()) {
+            logger.error("item not found: " + req.name);
             throw new BadRequestException("item with name: " + req.name + " not found");  
         }
         Item item = op.get();
@@ -110,6 +119,7 @@ public class MinimartService {
         item.setPrice(req.price);
         item.setStock(req.stock);
         itemRepository.save(item);
+        logger.info("item updated: " + req.name);
 
         return item;
     }
@@ -117,9 +127,11 @@ public class MinimartService {
     public Boolean deleteItem(String name) {
         Optional<Item> op = itemRepository.findByName(name);
         if (op.isEmpty()) {
+            logger.error("item not found: " + req.name);
             throw new BadRequestException("item with name: " + name + " not found");  
         }
         itemRepository.delete(op.get());
+        logger.info("item deleted: " + name);
         return true;
     }
 
