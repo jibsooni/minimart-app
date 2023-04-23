@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.unclejack.spring.jpa.model.Category;
 import com.unclejack.spring.jpa.model.CreateItemRequest;
+import com.unclejack.spring.jpa.model.CreateUserRequest;
 import com.unclejack.spring.jpa.model.Item;
 import com.unclejack.spring.jpa.model.LoginRequest;
 import com.unclejack.spring.jpa.model.SuccessResponse;
@@ -70,6 +71,11 @@ public class MinimartController {
     @PostMapping("/login")
     public UserResponse getUser(@RequestBody LoginRequest req) {
         return service.loginUser(req);
+    }
+
+    @PostMapping("/user")
+    public UserResponse createUser(@RequestBody CreateUserRequest user) {
+        return service.createUser(user);
     }
 
 }

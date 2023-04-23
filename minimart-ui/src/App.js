@@ -6,6 +6,7 @@ import ItemList from "./components/items-list.component";
 import AddItem from "./components/add-item.component";
 import UserLogin from "./components/user-login.component";
 import Item from "./components/item.component";
+import AddUser from "./components/add-user.component";
 
 function App() {
   return (
@@ -15,11 +16,11 @@ function App() {
           <h2>UncleJack's Minimart</h2>
         </Link>
         <div className="navbar-nav mr-auto">
-            {/* <li className="nav-item">
-              <Link to={"/add"} className="nav-link">
-                Add
+            <li className="nav-item">
+              <Link to={"/newuser"} className="nav-link">
+                Sign up
               </Link>
-            </li> */}
+            </li>
             <li className="nav-item">
               <Link to={"/admin"} className="nav-link">
                 Admin
@@ -33,6 +34,7 @@ function App() {
             <Route path="/add" element={<AddItem/>} />
             <Route path="/admin" element={<UserLogin/>} />
             <Route path="/update/:name" element={<Item/>} />
+            <Route path="/newuser" element={<AddUser/>} />
           </Routes>
         </div>
     </div>

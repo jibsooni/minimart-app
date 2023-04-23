@@ -152,7 +152,7 @@ class Item extends Component {
                         />
                     </div>
                     </form>
-
+                    <h3> </h3>
                     <button
                         className="btn btn-danger"
                         onClick={this.deleteItem}

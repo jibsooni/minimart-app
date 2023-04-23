@@ -53,6 +53,9 @@ export default class UserLogin extends Component {
                             isAdmin: true
                         })
                     }
+                    if (!this.state.isAdmin) {
+                        alert("Not administrator, please return to home page")
+                    }
                 } else {
                     alert("wrong username or password");
                 }
@@ -114,10 +117,10 @@ export default class UserLogin extends Component {
                                 <td>{item.stock}</td>
                                 <td>
                                 <button
-                                    className="m-3 btn btn-sm btn-success">
+                                    className="btn">
                                     <Link
                                         to={"/update/" + item.name}
-                                        className="btn btn-success"
+                                        className="btn btn-sm btn-success"
                                     >
                                         Update
                                     </Link>
@@ -165,6 +168,7 @@ export default class UserLogin extends Component {
                             name="password"
                         />
                         </div>
+                        <h3> </h3>
                         <button onClick={this.sendLogin} className="btn btn-success">
                             Enter
                         </button>

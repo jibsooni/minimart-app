@@ -50,11 +50,11 @@ public class MinimartService {
         
     }
 
-    public User createUser(CreateUserRequest req) {
+    public UserResponse createUser(CreateUserRequest req) {
         User user = new User(req.username, req.password, req.role);
         userRepository.save(user);
         logger.info("new user created: " + req.username);
-        return user;
+        return new UserResponse(user);
     }
 
     public User getUser(String username) {

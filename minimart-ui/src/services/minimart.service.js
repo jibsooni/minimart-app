@@ -29,6 +29,10 @@ class MinimartService {
     return http.post(`/login`, req);
   }
   
+  createUser(req) {
+    return http.post("/user", req);
+  }
+
 }
 
 export default new MinimartService();
