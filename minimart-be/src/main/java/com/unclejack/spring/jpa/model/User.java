@@ -1,6 +1,8 @@
 package com.unclejack.spring.jpa.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,8 +17,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pk_userid")
     private Long id;
+    @NotNull
+    @Size(min=5, max=20)
     private String username;
     private Role role;
+    @NotNull
+    @Size(min=8, max=20)
     private String password;
 
     public User() {

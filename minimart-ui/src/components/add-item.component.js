@@ -14,7 +14,7 @@ export default class AddItem extends Component {
         this.state = {
             id: null,
             name: "",
-            category: "", 
+            category: "6", 
             price: "",
             stock: "",
             
@@ -77,7 +77,7 @@ export default class AddItem extends Component {
     newItem() {
         this.setState({
           name: "",
-          category: "",
+          category: "6",
           price: "",
           stock: "",
     
@@ -124,11 +124,11 @@ export default class AddItem extends Component {
                       <div className="form-group">
                         <label htmlFor="category">Category</label>
                         <div>
-                            <select class="custom-select custom-select-lg mb-3" 
+                            <select className="custom-select custom-select-lg mb-3" 
                                 onChange={this.onChangeCategory}
                                 required
                             >
-                                <option selected>Choose Category</option>
+                                <option>Choose Category</option>
                                 <option value="0">Snacks</option>
                                 <option value="1">Vegetables</option>
                                 <option value="2">Fruits</option>

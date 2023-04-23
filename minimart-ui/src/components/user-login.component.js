@@ -82,7 +82,7 @@ export default class UserLogin extends Component {
                 this.setState({
                     items: response.data
                 });
-                console.log(response.data);
+                // console.log(response.data);
             })
             .catch(e => {
                 console.warn(e);

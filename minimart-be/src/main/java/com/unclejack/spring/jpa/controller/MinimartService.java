@@ -127,7 +127,7 @@ public class MinimartService {
     public Boolean deleteItem(String name) {
         Optional<Item> op = itemRepository.findByName(name);
         if (op.isEmpty()) {
-            logger.error("item not found: " + req.name);
+            logger.error("item not found: " + name);
             throw new BadRequestException("item with name: " + name + " not found");  
         }
         itemRepository.delete(op.get());

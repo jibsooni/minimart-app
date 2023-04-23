@@ -3,6 +3,7 @@ package com.unclejack.spring.jpa.model;
 import java.math.BigDecimal;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +18,13 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pk_itemid")
     private Long id;
+    @NotNull
     private Category category;
+    @NotNull
     private BigDecimal price;
+    @NotNull
     private String name;
+    @NotNull
     private Integer stock;
 
     public Item(Category category, BigDecimal price, String name, Integer stock) {
