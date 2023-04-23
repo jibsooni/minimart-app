@@ -25,7 +25,7 @@ In the terminal, navigate to the project directory and run the following command
 
 ### Step 2: Access the application
 
-The application can be accessed from the browser on `http://localhost:8081`
+The application can be accessed from the browser on `localhost:8081`
 
 The homepage that appears contains the list of items that are available today.
 
@@ -51,19 +51,24 @@ Click on the Update button to edit the price and stock of a specific item, or cl
 After any changes, return to the homepage to view the list of all available items.
 
 
-## Objectives Attempted
+### Step 5: Create new user
+
+If desired, a new regular can be created. Click on the Sign Up button to be redirected to the newuser page. This new user can be used for login. However, there is no functionality for regular users on the application yet.
+
+
+## Objectives
 
 1. Basic user authentication and authorization
-1. CRUD operations on database entities
+2. CRUD operations on database entities
     1. get all items in store
-    1. create item in store
-    1. update item in store
-    1. get all items by category
-    1. get item by name
-    1. delete item by name
-    1. get user for login
-
-1. User interface built with ReactJS
-1. Easy deployment with Docker
-1. Additional features: Hibernate ORM, Docker and Docker Compose support.
-
+    2. create item in store
+    3. update item in store
+    4. get all items by category
+    5. get item by name
+    6. delete item by name
+    7. get user for login
+    8. create new user
+    
+3. User interface built with ReactJS
+4. Easy deployment with Docker
+5. Additional features: Hibernate ORM, Docker and Docker Compose support.
