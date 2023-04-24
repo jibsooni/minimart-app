@@ -51,6 +51,10 @@ public class MinimartService {
     }
 
     public UserResponse createUser(CreateUserRequest req) {
+        Optional<User> op = userRepository.findByUsername(req.username);
+        if (op.isPresent()) {
+            return null;
+        }
         User user = new User(req.username, req.password, req.role);
         userRepository.save(user);
         logger.info("new user created: " + req.username);
@@ -85,7 +89,7 @@ public class MinimartService {
         }
         Item item = new Item(req.category, req.price, req.name, req.stock);
         itemRepository.save(item);
-        logger.error("item created: " + req.name);
+        logger.info("item created: " + req.name);
         return item;
     }
 
