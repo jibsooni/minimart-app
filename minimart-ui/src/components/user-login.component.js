@@ -46,14 +46,10 @@ export default class UserLogin extends Component {
                     this.setState({
                         username: response.data.username,
                         role: response.data.role,
-                        loggedIn: true
+                        loggedIn: true,
+                        isAdmin: response.data.role === "Administrator"
                     })
-                    if (this.state.role === "Administrator") {
-                        this.setState({
-                            isAdmin: true
-                        })
-                    }
-                    if (!this.state.isAdmin) {
+                    if (response.data.role !== "Administrator") {
                         alert("Not administrator, please return to home page")
                     }
                 } else {
